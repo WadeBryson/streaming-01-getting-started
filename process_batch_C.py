@@ -34,7 +34,12 @@ OUTPUT_FILE_NAME = "batchfile_3_farenheit.csv"
 
 
 def convert_k_to_f(temp_k):
-    return
+    logging.debug(f"Calling convert_k_to_f() with {temp_k}.")
+    step1 = (temp_k*1.8)
+    full_temp_f = step1 - 459.67
+    temp_f = round(full_temp_f, 2)
+    logging.debug(f"Converted {temp_k}K to {temp_f}F.")
+    return temp_f
 
 
 def process_rows(input_file_name, output_file_name):
@@ -54,3 +59,5 @@ if __name__ == "__main__":
         logging.info("===============================================")
     except Exception as e:
         logging.error(f"An error occurred: {e}")
+
+convert_k_to_f(300)
